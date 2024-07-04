@@ -77,7 +77,7 @@ catch(err){
 export const deleteAuthor = async(req, res, next )=>{
     const {id}= req.params
     try{
-        const author = authorModel.findByIdAndDelete(id)
+        const author = await authorModel.findByIdAndDelete(id)
         if(!author){
             return res.status(404).json({message:"Author not found" })
             }
